@@ -6,6 +6,24 @@
     android:layout_height="match_parent"
     tools:context="com.example.jin.as_ndk_demo.MainActivity">
 
+    <android.support.v7.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="field from c"
+            android:onClick="fieldFromC"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="method from c"
+            android:onClick="methodFromC"/>
+    </android.support.v7.widget.LinearLayoutCompat>
+
     <TextView
         android:id="@+id/sample_text"
         android:layout_width="wrap_content"
@@ -14,6 +32,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
+
+
 
 </android.support.constraint.ConstraintLayout>

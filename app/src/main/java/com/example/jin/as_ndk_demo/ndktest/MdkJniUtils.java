@@ -12,5 +12,5 @@ public class MdkJniUtils {
     }
 
 
-    public native String getCLanguageString();
+//    public native String getCLanguageString();
 }
