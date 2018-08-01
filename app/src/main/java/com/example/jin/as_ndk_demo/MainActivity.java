@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
     static {
         System.loadLibrary("native-lib");
         init();
+        init1();
     }
 
     public String name = "test";
@@ -70,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void onCache(View view) {
 //        for (int i = 0; i < 10; i++) {
-            cache();
+        init1();
 //        }
     }
 
@@ -93,6 +94,8 @@ public class MainActivity extends AppCompatActivity {
     public native void cache();
 
     public native static void init();
+
+    public native static void init1();
 
 
 }

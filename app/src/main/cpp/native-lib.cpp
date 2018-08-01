@@ -140,3 +140,16 @@ Java_com_example_jin_as_1ndk_1demo_MainActivity_init(JNIEnv *env, jclass type) {
     // TODO
 
 }
+
+extern "C"
+JNIEXPORT void JNICALL
+Java_com_example_jin_as_1ndk_1demo_MainActivity_init1(JNIEnv *env, jclass type) {
+//    jclass jclass1 = env->GetObjectClass(instance);
+    static jfieldID jfieldID1 = NULL;
+    if (jfieldID1 == NULL) {
+        jfieldID1 = env->GetFieldID(type, "name", "Ljava/lang/String;");
+        LOGD("----------------------getfield   init1 -----------------------");
+    }
+    // TODO
+
+}
