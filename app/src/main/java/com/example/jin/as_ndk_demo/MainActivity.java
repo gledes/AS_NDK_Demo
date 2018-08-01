@@ -11,6 +11,7 @@ public class MainActivity extends AppCompatActivity {
     // Used to load the 'native-lib' library on application startup.
     static {
         System.loadLibrary("native-lib");
+        init();
     }
 
     public String name = "test";
@@ -26,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         TextView tv = (TextView) findViewById(R.id.sample_text);
         tv.setText(stringFromJNI());
         Toast.makeText(this, getMethodFromJNI(), Toast.LENGTH_SHORT).show();
-
+        cache();
     }
 
 
@@ -67,6 +68,12 @@ public class MainActivity extends AppCompatActivity {
 //        tv.setText();
     }
 
+    public void onCache(View view) {
+//        for (int i = 0; i < 10; i++) {
+            cache();
+//        }
+    }
+
     /**
      * A native method that is implemented by the 'native-lib' native library,
      * which is packaged with this application.
@@ -83,6 +90,9 @@ public class MainActivity extends AppCompatActivity {
 
     public native void exception();
 
+    public native void cache();
+
+    public native static void init();
 
 
 }

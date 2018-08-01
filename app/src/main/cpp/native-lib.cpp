@@ -1,6 +1,16 @@
 #include <jni.h>
 #include <string>
 #include <stdlib.h>
+#include <android/log.h>
+
+
+#define TAG "myDemo-jni" // 这个是自定义的LOG的标识
+#define LOGD(...) __android_log_print(ANDROID_LOG_DEBUG,TAG ,__VA_ARGS__) // 定义LOGD类型
+#define LOGI(...) __android_log_print(ANDROID_LOG_INFO,TAG ,__VA_ARGS__) // 定义LOGI类型
+#define LOGW(...) __android_log_print(ANDROID_LOG_WARN,TAG ,__VA_ARGS__) // 定义LOGW类型
+#define LOGE(...) __android_log_print(ANDROID_LOG_ERROR,TAG ,__VA_ARGS__) // 定义LOGE类型
+#define LOGF(...) __android_log_print(ANDROID_LOG_FATAL,TAG ,__VA_ARGS__) // 定义LOGF类型
+
 
 extern "C"
 JNIEXPORT jstring
@@ -98,6 +108,34 @@ Java_com_example_jin_as_1ndk_1demo_MainActivity_exception(JNIEnv *env, jobject i
     if(strcmp(str, "www") != 0) {
         jclass newthrow = env->FindClass("java/lang/IllegalArgumentException");
         env->ThrowNew(newthrow, "非法参数");
+    }
+    // TODO
+
+}
+
+extern "C"
+JNIEXPORT void JNICALL
+Java_com_example_jin_as_1ndk_1demo_MainActivity_cache(JNIEnv *env, jobject instance) {
+
+    jclass jclass1 = env->GetObjectClass(instance);
+
+    static jfieldID jfieldID1 = NULL;
+    if (jfieldID1 == NULL) {
+        jfieldID1 = env->GetFieldID(jclass1, "name", "Ljava/lang/String;");
+        LOGD("----------------------getfield-----------------------");
+    }
+
+    // TODO
+
+}
+
+extern "C"
+JNIEXPORT void JNICALL
+Java_com_example_jin_as_1ndk_1demo_MainActivity_init(JNIEnv *env, jclass type) {
+    static jfieldID jfieldID1 = NULL;
+    if (jfieldID1 == NULL) {
+        jfieldID1 = env->GetFieldID(type, "name", "Ljava/lang/String;");
+        LOGD("----------------------getfield   init -----------------------");
     }
     // TODO
 

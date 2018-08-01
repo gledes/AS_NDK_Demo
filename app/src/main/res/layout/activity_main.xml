@@ -34,6 +34,12 @@
             android:layout_height="wrap_content"
             android:text="异常"
             android:onClick="exception"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="缓存"
+            android:onClick="onCache"/>
     </android.support.v7.widget.LinearLayoutCompat>
 
     <TextView
