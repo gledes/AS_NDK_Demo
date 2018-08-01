@@ -15,6 +15,8 @@ public class MainActivity extends AppCompatActivity {
 
     public String name = "test";
 
+    private int[] arr = {5, 9 ,3, 21, 87, 2};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         TextView tv = (TextView) findViewById(R.id.sample_text);
         tv.setText(stringFromJNI());
         Toast.makeText(this, getMethodFromJNI(), Toast.LENGTH_SHORT).show();
+
     }
 
 
@@ -42,6 +45,28 @@ public class MainActivity extends AppCompatActivity {
         tv.setText(getMethodFromJNI());
     }
 
+    public void sort(View view) {
+        TextView tv = findViewById(R.id.sample_text);
+
+        getArray(arr);
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < arr.length; i++) {
+            sb.append(arr[i]).append(",");
+        }
+        tv.setText(sb.toString());
+    }
+
+    public void exception(View view) {
+        TextView tv = findViewById(R.id.sample_text);
+        try {
+            exception();
+        } catch (Exception e) {
+            tv.setText(e.getMessage());
+        }
+
+//        tv.setText();
+    }
+
     /**
      * A native method that is implemented by the 'native-lib' native library,
      * which is packaged with this application.
@@ -53,4 +78,11 @@ public class MainActivity extends AppCompatActivity {
     public native String getMethodFromJNI();
 
     public native void getArray(int[] arrays);
+
+    public native void getLocalReference();
+
+    public native void exception();
+
+
+
 }

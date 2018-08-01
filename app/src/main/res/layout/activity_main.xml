@@ -22,6 +22,18 @@
             android:layout_height="wrap_content"
             android:text="method from c"
             android:onClick="methodFromC"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="sort"
+            android:onClick="sort"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="异常"
+            android:onClick="exception"/>
     </android.support.v7.widget.LinearLayoutCompat>
 
     <TextView
